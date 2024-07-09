@@ -27,19 +27,13 @@ def test_find_trip_by_id():
     trips_repository = TripsRepository(conn)
 
     trip = trips_repository.find_trip_by_id(trip_id)
-    print()
     print(trip)
+    
 
-def find_trip_by_id(self, trip_id: str):
-    cursor = self.__conn.cursor()
-    cursor.execute(
-        '''
-        SELECT * FROM trips WHERE id = ?
-        ''',
-        (trip_id,)
-    )
+def test_update_trip_status():
+    conn = db_connection_handler.get_connection()
+    trips_repository = TripsRepository(conn)
 
-    trip = cursor.fetchone()
-
-    return trip
+    trips_repository.update_trip_status(trip_id)
+ 
     
